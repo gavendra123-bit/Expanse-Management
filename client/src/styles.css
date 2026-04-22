@@ -1,0 +1,182 @@
+:root {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #1f2937;
+  background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 45%, #fde68a 100%);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+a {
+  color: #b45309;
+  text-decoration: none;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 0.9rem 1rem;
+  border-radius: 12px;
+  border: 1px solid #f59e0b;
+  background: #fffdf8;
+}
+
+button {
+  border: none;
+  border-radius: 12px;
+  padding: 0.9rem 1rem;
+  background: #b45309;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #92400e;
+}
+
+.secondary-btn {
+  background: #1f2937;
+}
+
+.secondary-btn:hover {
+  background: #111827;
+}
+
+.auth-shell,
+.dashboard-shell {
+  min-height: 100vh;
+  padding: 2rem;
+}
+
+.auth-shell {
+  display: grid;
+  place-items: center;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.75);
+  border-radius: 24px;
+  box-shadow: 0 18px 50px rgba(146, 64, 14, 0.12);
+}
+
+.auth-card {
+  width: min(420px, 100%);
+  display: grid;
+  gap: 1rem;
+  padding: 2rem;
+}
+
+.auth-card h1,
+.card h2,
+.dashboard-header h1,
+.expense-item h3 {
+  margin: 0;
+}
+
+.auth-card p,
+.dashboard-header p,
+.list-header p,
+.empty-state {
+  margin: 0;
+  color: #6b7280;
+}
+
+.success,
+.error {
+  padding: 0.8rem 1rem;
+  border-radius: 12px;
+}
+
+.success {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.error {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+.dashboard-shell {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  gap: 1.5rem;
+}
+
+.dashboard-grid .card {
+  padding: 1.5rem;
+}
+
+.dashboard-grid form {
+  display: grid;
+  gap: 1rem;
+}
+
+.list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.expense-list {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.expense-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  border-radius: 16px;
+  background: #fff7ed;
+}
+
+.expense-item span {
+  color: #6b7280;
+}
+
+@media (max-width: 900px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-header,
+  .list-header,
+  .expense-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
