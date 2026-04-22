@@ -1,6 +1,7 @@
 import cors from "cors";
 import dotenv from "dotenv";
 import express from "express";
+import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
 import connectDB from "./config/db.js";
@@ -15,6 +16,9 @@ const PORT = process.env.PORT || 3000;
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const clientDistPath = path.join(__dirname, "../client/dist");
+const shouldServeClient =
+  process.env.SERVE_CLIENT === "true" ||
+  (process.env.NODE_ENV === "production" && fs.existsSync(path.join(clientDistPath, "index.html")));
 
 const allowedOrigins = (process.env.CLIENT_URLS || "http://localhost:5173")
   .split(",")
@@ -41,7 +45,7 @@ app.get("/api/health", (req, res) => {
 app.use("/api/auth", authRoutes);
 app.use("/api/expenses", expenseRoutes);
 
-if (process.env.NODE_ENV === "production") {
+if (shouldServeClient) {
   app.use(express.static(clientDistPath));
 
   app.get("*", (req, res) => {
